@@ -1,6 +1,4 @@
-@import "./vars.scss";
-@import "./mixins/fonts.scss";
-@import "./fonts.scss";
+@use './fonts.scss';
 
 *,
 *::after,
@@ -14,14 +12,11 @@ html {
 
 body {
   font-size: 16px;
-  font-family: $main-font;
-
-  background-color: $fill-primary;
 }
 
 .container {
-  max-width: 1440px;
-  padding: 0 40px;
+  max-width: 1260px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 

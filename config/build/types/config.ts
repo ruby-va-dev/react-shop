@@ -4,6 +4,8 @@ export interface BuildPaths {
     entry: string;
     build: string;
     html: string;
+    globalSCSS: string;
+    sourceFolder: string;
 }
 
 export interface BuildEnv {

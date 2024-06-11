@@ -1,3 +1,5 @@
+@use 'global/mixins/fonts.scss' as *;
+
 @include font-face("Roboto", "Roboto-Regular", 400, normal);
 @include font-face("Roboto", "Roboto-Light", 300, normal);
 @include font-face("Roboto", "Roboto-Bold", 700, normal);
