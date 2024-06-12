@@ -11,7 +11,12 @@ export function buildLoaders({isDev, paths}: BuildOptions): webpack.RuleSetRule[
             {
                 loader: "css-loader",
                 options: {
-                    modules: true,
+                    modules: {
+                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+                        localIdentName: isDev
+                            ? '[path][name]__[local]--[hash:base64:5]'
+                            : '[hash:base64:8]',
+                    },
                 },
             },
             {
@@ -32,9 +37,6 @@ export function buildLoaders({isDev, paths}: BuildOptions): webpack.RuleSetRule[
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
                 loader: "css-loader",
-                options: {
-                    modules: true,
-                },
             },
         ],
     }
