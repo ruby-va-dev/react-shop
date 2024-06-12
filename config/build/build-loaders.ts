@@ -26,6 +26,19 @@ export function buildLoaders({isDev, paths}: BuildOptions): webpack.RuleSetRule[
         ],
     }
 
+    const cssLoader = {
+        test: /\.css/i,
+        use: [
+            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+                loader: "css-loader",
+                options: {
+                    modules: true,
+                },
+            },
+        ],
+    }
+
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -40,6 +53,7 @@ export function buildLoaders({isDev, paths}: BuildOptions): webpack.RuleSetRule[
     return [
         typescriptLoader,
         styleLoader,
-        svgLoader
+        svgLoader,
+        cssLoader
     ]
 }
